@@ -27,7 +27,7 @@ body {
   color: #232830;
 }
 
-.hero {
+.masthead {
   width: 100%;
   padding-bottom: 50%;
   position: relative;
@@ -80,7 +80,34 @@ h1 {
   font-size: 62px;
   font-weight: 600;
 }
-.features h3 {
+h2 {
+  font-size: 34px;
+  font-weight: 400;
+}
+p {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 28px;
+}
+a {
+  color: #0D8FDB;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+.features { width: 1150px; margin:auto; padding: 50px;}
+.features figure {
+  width: 50%;
+  padding: 40px;
+  margin: auto;
+  float: left;
+}
+.features img {
+  height: 50%;
+  width: 50%;
+}
+.features h2 { 
+  text-align: center;
   margin: 40px 0 60px 0;
   font-size: 32px;
 }
@@ -157,6 +184,18 @@ footer {
 /*---------------------------------------------*/
             /*Media Queries*/
 /*---------------------------------------------*/
+@media only screen and (max-width: 978px) {
+  h1 {
+    font-size: 48px;
+  }
+  .features figure {
+    width: 50%;
+  }
+  .features article:nth-child(2n+1) {
+    clear: left;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   header {
     color: #232830;
@@ -186,68 +225,21 @@ footer {
     padding: 18px 20px;
     margin: 0 5px;
   }
-}
-
-@media only screen and (max-width: 600px) {
   .content-main {
     padding-top: 256px;
   }
-}
-
-@media only screen and (max-width: 978px) {
-  h1 {
-    font-size: 48px;
-  }
-}
-h2 {
-  font-size: 34px;
-  font-weight: 400;
-}
-h3 {
-  text-align: center;
-}
-p {
-  margin: 20px 0;
-  text-align: center;
-  font-size: 18px;
-  line-height: 28px;
-}
-a {
-  color: #0D8FDB; /* #5b90bf;*/
-  text-decoration: none;
-  border-bottom: 1px solid;
-}
-.features article {
-  width: 33.33%;
-  padding: 40px;
-  float: left;
-}
-@media only screen and (max-width: 978px) {
-  .features article {
-    width: 50%;
-  }
-  .features article:nth-child(2n+1) {
-    clear: left;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .features article {
+  .features figure {
     width: auto;
     float: none;
     border-bottom: 1px solid #e1e1e1;
     padding: 20px 12px;
   }
-  .features article:last-child {
+  .features figure:last-child {
     border-bottom: none;
   }
-}
-
-@media only screen and (max-width: 600px) {
   .features h3 {
     font-size: 28px;
   }
-}
-@media only screen and (max-width: 600px) {
   .banner h2 {
     line-height: normal;
     font-size: 22px;

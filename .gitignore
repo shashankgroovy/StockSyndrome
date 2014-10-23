@@ -1,3 +1,7 @@
-.swp 
-.swo
-.pyc
+# Files
+*.pyc
+*.db
+
+# Ignore vim backup files
+*.swp
+
