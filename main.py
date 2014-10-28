@@ -1,11 +1,11 @@
 import sqlite3
 import requests
-from flask import Flask, request, jsonify, render_template, g
 from contextlib import closing
+from flask import Flask, request, jsonify, render_template, g, session, \
+        abort, redirect, url_for
 
 # declaring the app
 app = Flask(__name__)
-DEBUG = True
 
 # create db
 users_db = 'users.db'
@@ -48,6 +48,22 @@ def login():
     else:
         return render_template('login.html')
 
+
+# get stocks data
+@app.route('/data')
+def get_data():
+    BASEURL = "http://finance.yahoo.com/d/quotes.csv?s="
+    PARAMS = "AAPL+GOOG+MSFT"
+    FORMAT = "&f=nsghl1"
+    URL = BASEURL + PARAMS + FORMAT
+    r = requests.get(URL)
+    data = dict()
+    lines = r.text
+    for l in lines.strip().split('\n'):
+        (name, sym, lo, hi, latest) = map(unicode.strip, l.split(","))
+        data[sym] = {"name": name, "lo": lo, "hi": hi, "latest": latest}
+    return jsonify(data)
+
 if __name__ == '__main__':
     init_db()               # Setup the database
-    app.run()               # Go live!!!
+    app.run(debug=True)
