@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <title>Stock Syndrome</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Stock syndrome, get all your stock information with interactive charts for free."/>
+    <link rel="stylesheet" type="text/css" href="static/styles/foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/layout.css">
+    <link rel="icon" type="image/png" href="static/images/triangle-favicon.png" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+</head>
+<body>
+    
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+      <h1 class="title"><a href="{{url_for('index')}}">Stock Syndrome</a></h1>
+      </section>
+
+    </nav>
+
+    <!-- Off Canvas Menu -->
+    <aside class="left-off-canvas-menu">
+        <!-- whatever you want goes here -->
+        <ul class="offcavas-items">
+            <li><a href="#"></a></li>
+            <li><a class="nav" href="{{url_for('index')}}">Home</a></li>
+            {% if not session.logged_in %}
+                <a class="nav" href="{{ url_for('login') }}">Log in</a>
+                <a class="nav" href="{{ url_for('signup') }}">Sign Up</a>
+            {% else %}
+                <a class="nav" href="{{ url_for('logout') }}">Log out</a>
+            {% endif %}
+            <li><a href="#" class="nav">&copy;2014 Stock Syndrome</a></li>
+        ...
+        </ul>
+    </aside>
+
+    <!-- main content goes here -->
+    {% block content %}
+    {% endblock %}
+
+  <!-- close the off-canvas menu -->
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>
+<script src="static/scripts/vendor/jquery.js"></script>
+<script src="static/scripts/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+</body>
+</html>

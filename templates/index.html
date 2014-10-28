@@ -22,7 +22,7 @@
 
     <div class="content-main">
         <section class="features">
-            <h2> Built using the modern day technologies</h2>
+            <h2>Built using the modern day technologies</h2>
             <figure>
                 <img src="static/images/angularjs-logo.png" alt="angular js" />
                 <figcaption>The most advanced frontend MVC framework</figcaption>
@@ -31,10 +31,10 @@
                 <img src="static/images/python-logo.png" alt="python" />
                 <figcaption>Parselmouth powers our backend</figcaption>
             </figure>
-            <figure>
-                <img src="static/images/mongodb-logo.png" alt="mongo" />
-                <figcaption>Keeping our data in good hands</figcaption>
-            </figure>
+            <!--<figure>-->
+                <!--<img src="static/images/mongodb-logo.png" alt="mongo" />-->
+                <!--<figcaption>Keeping our data in good hands</figcaption>-->
+            <!--</figure>-->
             <figure>
                 <img src="static/images/yahoo-logo.png" alt="mongo" />
                 <figcaption>Real Time updates using the <a href="https://developer.yahoo.com/">Yahoo Finance API</a></figcaption>
@@ -53,97 +53,62 @@
     </footer>
 
     <script src="static/scripts/chart.min.js"></script>
-    <script>(function(){
-        // Colour variables
-        var red = "#bf616a",
-            blue = "#5B90BF",
-            orange = "#d08770",
-            yellow = "#ebcb8b",
-            green = "#a3be8c",
-            teal = "#96b5b4",
-            pale_blue = "#8fa1b3",
-            purple = "#b48ead",
-            brown = "#ab7967";
+    <script>
+        /*
+	var data = [],
+		barsCount = 50,
+		labels = new Array(barsCount),
+		updateDelayMax = 500,
+		$id = function(id){
+			return document.getElementById(id);
+		},
+		random = function(max){ return Math.round(Math.random()*100)},
+		helpers = Chart.helpers;
 
 
-            var baseDataset = {
-                fill: 'rgba(222,225,232,0.4)',
-                stroke: 'rgba(222,225,232,1)',
-                highlight: 'rgba(222,225,232,0.8)',
-                highlightStroke: 'rgba(222,225,232,1)'
-            },
-            overlayDataset = {
-                fill: 'rgba(91,144,191,0.4)',
-                stroke: 'rgba(91,144,191,1)',
-                highlight: 'rgba(91,144,191,0.8)',
-                highlightStroke: 'rgba(91,144,191,1)'
-            };
-
-        var data = [],
-            barsCount = 50,
-            labels = new Array(barsCount),
-            updateDelayMax = 500,
-            $id = function(id){
-                return document.getElementById(id);
-            },
-            random = function(max){ return Math.round(Math.random()*100)},
-            helpers = Chart.helpers;
+	Chart.defaults.global.responsive = true;
 
 
-        Chart.defaults.global.responsive = true;
+	for (var i = barsCount - 1; i >= 0; i--) {
+		data.push(Math.round(Math.random() * 100));
+	};
+	new Chart($id('hero-bar').getContext('2d')).Bar({
+		labels : labels,
+		datasets : [{
+			fillColor : '#2B303B',
+			data : data
+		}]
+	},{
+		showScale : false,
+		barShowStroke : false,
+		barValueSpacing: 1,
+		showTooltips : false,
+		onAnimationComplete : function(){
+			// Get scope of the hero chart during updates
+			var heroChart = this,
+				timeout;
+			// Stop this running every time the update is fired
+			this.options.onAnimationComplete = randomUpdate;
 
+			this.options.animationEasing = 'easeOutQuint';
 
-        for (var i = barsCount - 1; i >= 0; i--) {
-            data.push(Math.round(Math.random() * 100));
-        };
-        new Chart($id('hero-bar').getContext('2d')).Bar({
-            labels : labels,
-            datasets : [{
-                fillColor : '#2B303B',
-                data : data
-            }]
-        },{
-            showScale : false,
-            barShowStroke : false,
-            barValueSpacing: 1,
-            showTooltips : false,
-            onAnimationComplete : function(){
-                // Get scope of the hero chart during updates
-                var heroChart = this,
-                    timeout;
-                // Stop this running every time the update is fired
-                this.options.onAnimationComplete = randomUpdate;
+			randomUpdate();
 
-                this.options.animationEasing = 'easeOutQuint';
-
-                randomUpdate();
-
-                function randomUpdate(){
-                    heroChart.stop();
-                    clearTimeout(timeout);
-                    // Get a random bar
-                    timeout = setTimeout(function(){
-                        var randomNumberOfBars = Math.floor(Math.random() * barsCount),
-                            i;
-                        for (i = randomNumberOfBars - 1; i >= 0; i--) {
-                            heroChart.datasets[0].bars[Math.floor(Math.random() * barsCount)].value = Math.round(Math.random() * 100);
-                        };
-                        heroChart.update();
-                    },Math.random() * updateDelayMax);
-                };
-            }
-        });
-
-
-    /* for mobile screens replace image
-    function checkResolution() {
-        if (window.innerWidth() < 600) {
-            var images = document.images;
-            for (var i = 0, ln = images.lenth; i<ln; i++) {
-                console.log(images[i]);
-            }
-        }
-    } */
+			function randomUpdate(){
+				heroChart.stop();
+				clearTimeout(timeout);
+				// Get a random bar
+				timeout = setTimeout(function(){
+					var randomNumberOfBars = Math.floor(Math.random() * barsCount),
+						i;
+					for (i = randomNumberOfBars - 1; i >= 0; i--) {
+						heroChart.datasets[0].bars[Math.floor(Math.random() * barsCount)].value = Math.round(Math.random() * 100);
+					};
+					heroChart.update();
+				},Math.random() * updateDelayMax);
+			};
+		}
+	}); */
 </script>
 <!--
 <script src="static/scripts/vendor/jquery.js"></script>
