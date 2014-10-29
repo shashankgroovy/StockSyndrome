@@ -53,8 +53,11 @@ def close_db(error):
 # views
 @app.route('/', methods=["GET"])
 def index():
-    if session['logged_in']:
-        return render_template('mainpage.html')
+    try:
+        if session['logged_in']:
+            return render_template('mainpage.html')
+    except KeyError:
+        pass
     return render_template('index.html')
 
 
@@ -62,29 +65,34 @@ def index():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     error = None
-    db = get_db()
+    db = connect_db()
     cursor = db.cursor()
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        email = request.form['email']
-        if username and password and email:
-            try:
-                query = "INSERT INTO `users` (`username`, `password`, `email`) VALUES (?, ?, ?)"
-                cursor.execute(query, (username, password, email))
-                db.commit()
-                flash('You have successfully created an account')
-                session['logged_in'] = True
-                return redirect(url_for('index'))
-            except:
-                pass
-        else:
-            error = 'Invalid credentials'
+    try:
+        if session['logged_in']:
+            return redirect(url_for('index'))
+        if request.method == 'POST':
+            username = request.form['username']
+            password = request.form['password']
+            email = request.form['email']
+            if username and password and email:
+                try:
+                    query = "INSERT INTO `users` (`username`, `password`, `email`) VALUES (?, ?, ?)"
+                    cursor.execute(query, (username, password, email))
+                    db.commit()
+                    flash('You have successfully created an account')
+                    session['logged_in'] = True
+                    return redirect(url_for('index'))
+                except:
+                    pass
+            else:
+                error = 'Invalid credentials'
+    except KeyError:
+            return render_template('signup.html', error=error)
     return render_template('signup.html', error=error)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    db = get_db()
+    db = connect_db()
     cursor = db.cursor()
     error = None
     if request.method == 'POST':

@@ -4,14 +4,27 @@
 <script src="static/scripts/angular.js"></script>
 <div class="content" ng-app="myApp">
     <div ng-controller="Ctrl">
+        <h2 class="alert-box alert radius">Start right away by viewing all the available stocks</h2>
         <input type="text" ng-model="search" placeholder="Search">
         <table>
+            <thead>
+                <tr>
+                <th width="200">Name</th>
+                <th width="200">Symbol</th>
+                <th width="150">Latest</th>
+                <th width="150">Day's High</th>
+                <th width="150">Day's Low</th>
+                </tr>
+            </thead>
+            <tbody>
             <tr ng-repeat="stock in stocks.market | filter:search">
                 <td>{{stock.name|angular}}</td>
+                <td>{{stock|angular}}</td>
                 <td>{{stock.latest|angular}}</td>
                 <td>{{stock.hi|angular}}</td>
                 <td>{{stock.lo|angular}}</td>
             </tr>
+            </tbody>
         </table>
     </div>
 
@@ -47,78 +60,7 @@
         function Ctrl($scope, Stocks) {
             $scope.stocks = Stocks;
         }
-
-        /* the angular js docs style 
-        angular.module('myApp', []).factory('Avengers', [function () {
-            var Avengers = {};
-            Avengers.cast = [
-                    {
-                        name: "Robert Downey Jr.",
-                        character: "Tony Stark / Iron Man"
-                    },
-                    {
-                        name: "Chris Evans",
-                        character: "Steve Rogers / Captain America"
-                    },
-                    {
-                        name: "Mark Ruffalo",
-                        character: "Bruce Banner / The Hulk"
-                    },
-                    {
-                        name: "Chris Hemsworth",
-                        character: "Thor"
-                    },
-                    {
-                        name: "Scarlett Johansson",
-                        character: "Natasha Romanoff / Black Widow"
-                    },
-                    {
-                        name: "Jeremy Renner",
-                        character: "Clint Barton / Hawkeye"
-                    },
-                    {
-                        name: "Tom Hiddleston",
-                        character: "Loki"
-                    },
-                    {
-                        name: "Clark Gregg",
-                        character: "Agent Phil Coulson"
-                    },
-                    {
-                        name: "Cobie Smulders",
-                        character: "Agent Maria Hill"
-                    },
-                    {
-                        name: "Stellan Skarsgard",
-                        character: "Selvig"
-                    },
-                    {
-                        name: "Samuel L. Jackson",
-                        character: "Nick Fury"
-                    },
-                    {
-                        name: "Gwyneth Paltrow",
-                        character: "Pepper Potts"
-                    },
-                    {
-                        name: "Paul Bettany",
-                        character: "Jarvis (voice)"
-                    },
-                    {
-                        name: "Alexis Denisof",
-                        character: "The Other"
-                    },
-                    {
-                        name: "Tina Benko",
-                        character: "NASA Scientist"
-                    }
-                ];
-            return Avengers;
-        }]).controller('Ctrl', [$scope, Avengers, function($scope, Avengers){
-            $scope.avengers = Avengers;
-        })
-        */
-
+    <script>
     </script>
 </body>
 </html>

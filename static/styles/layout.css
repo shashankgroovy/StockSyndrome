@@ -33,15 +33,15 @@ form.panel {
     text-align: center;
     border-radius: 5px;
 }
-form.panel > h2 {
-    font-family: 'Proxima Nova Lt', sans-serif;
-}
+form.panel > h2, .content h2{ font-family: 'Proxima Nova Lt', sans-serif; }
 
 
 div.content {
-    height: 480px;
-    background-color: rgba(255,255,255, 0.8);
-    width: 720px;
+    min-height: 480px;
+    background-color: rgba(255,255,255, 0.9);
+    max-width: 920px;
     min-width: 320px;
-    margin:auto;
+    width: auto;
+    margin: 50px auto;
+    padding: 50px;
 }
