@@ -1,0 +1,20 @@
+{
+  "\"AAPL\"": {
+    "hi": "106.74", 
+    "latest": "106.74", 
+    "lo": "105.35", 
+    "name": "\"Apple Inc.\""
+  }, 
+  "\"GOOG\"": {
+    "hi": "548.98", 
+    "latest": "548.90", 
+    "lo": "541.62", 
+    "name": "\"Google Inc.\""
+  }, 
+  "\"MSFT\"": {
+    "hi": "46.50", 
+    "latest": "46.49", 
+    "lo": "45.77", 
+    "name": "\"Microsoft Corpora\""
+  }
+}

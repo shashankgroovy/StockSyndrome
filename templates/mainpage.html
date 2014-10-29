@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="static/scripts/angular.js"></script>
+<div class="content" ng-app="myApp">
+    <div ng-controller="Ctrl">
+        <input type="text" ng-model="search" placeholder="Search">
+        <table>
+            <tr ng-repeat="stock in stocks.market | filter:search">
+                <td>{{stock.name|angular}}</td>
+                <td>{{stock.latest|angular}}</td>
+                <td>{{stock.hi|angular}}</td>
+                <td>{{stock.lo|angular}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.factory('Stocks', function() {
+            var Stocks = {};
+            Stock.market = [
+                    {
+                    "\"AAPL\"": {
+                        "hi": "106.74", 
+                        "latest": "106.74", 
+                        "lo": "105.35", 
+                        "name": "\"Apple Inc.\""
+                    }, 
+                    "\"GOOG\"": {
+                        "hi": "548.98", 
+                        "latest": "548.90", 
+                        "lo": "541.62", 
+                        "name": "\"Google Inc.\""
+                    }, 
+                    "\"MSFT\"": {
+                        "hi": "46.50", 
+                        "latest": "46.49", 
+                        "lo": "45.77", 
+                        "name": "\"Microsoft Corpora\""
+                    }
+                    }
+                ];
+            return Stocks;
+        });
+
+        function Ctrl($scope, Stocks) {
+            $scope.stocks = Stocks;
+        }
+
+        /* the angular js docs style 
+        angular.module('myApp', []).factory('Avengers', [function () {
+            var Avengers = {};
+            Avengers.cast = [
+                    {
+                        name: "Robert Downey Jr.",
+                        character: "Tony Stark / Iron Man"
+                    },
+                    {
+                        name: "Chris Evans",
+                        character: "Steve Rogers / Captain America"
+                    },
+                    {
+                        name: "Mark Ruffalo",
+                        character: "Bruce Banner / The Hulk"
+                    },
+                    {
+                        name: "Chris Hemsworth",
+                        character: "Thor"
+                    },
+                    {
+                        name: "Scarlett Johansson",
+                        character: "Natasha Romanoff / Black Widow"
+                    },
+                    {
+                        name: "Jeremy Renner",
+                        character: "Clint Barton / Hawkeye"
+                    },
+                    {
+                        name: "Tom Hiddleston",
+                        character: "Loki"
+                    },
+                    {
+                        name: "Clark Gregg",
+                        character: "Agent Phil Coulson"
+                    },
+                    {
+                        name: "Cobie Smulders",
+                        character: "Agent Maria Hill"
+                    },
+                    {
+                        name: "Stellan Skarsgard",
+                        character: "Selvig"
+                    },
+                    {
+                        name: "Samuel L. Jackson",
+                        character: "Nick Fury"
+                    },
+                    {
+                        name: "Gwyneth Paltrow",
+                        character: "Pepper Potts"
+                    },
+                    {
+                        name: "Paul Bettany",
+                        character: "Jarvis (voice)"
+                    },
+                    {
+                        name: "Alexis Denisof",
+                        character: "The Other"
+                    },
+                    {
+                        name: "Tina Benko",
+                        character: "NASA Scientist"
+                    }
+                ];
+            return Avengers;
+        }]).controller('Ctrl', [$scope, Avengers, function($scope, Avengers){
+            $scope.avengers = Avengers;
+        })
+        */
+
+    </script>
+</body>
+</html>
+
+</div>
+{% endblock %}
