@@ -9,8 +9,8 @@
         <table>
             <thead>
                 <tr>
-                <th width="200">Name</th>
                 <th width="200">Symbol</th>
+                <th width="200">Name</th>
                 <th width="150">Latest</th>
                 <th width="150">Day's High</th>
                 <th width="150">Day's Low</th>
@@ -18,8 +18,8 @@
             </thead>
             <tbody>
             <tr ng-repeat="stock in stocks.market | filter:search">
-                <td>{{stock.name|angular}}</td>
                 <td>{{stock|angular}}</td>
+                <td>{{stock.name|angular}}</td>
                 <td>{{stock.latest|angular}}</td>
                 <td>{{stock.hi|angular}}</td>
                 <td>{{stock.lo|angular}}</td>
@@ -59,7 +59,6 @@
 
         function Ctrl($scope, Stocks) {
             $scope.stocks = Stocks;
-        }
     <script>
     </script>
 </body>

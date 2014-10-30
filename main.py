@@ -105,7 +105,8 @@ def login():
                 results = cursor.fetchall()
                 #print results[0][0]
                 if not results:
-                    return False
+                    error = "Invalid username/password"
+                    return render_template('login.html', error=error)
                 session['logged_in'] = True
                 return redirect(url_for('index'))
             except db.Error:
