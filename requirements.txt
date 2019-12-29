@@ -10,7 +10,7 @@ WTForms==2.0.1
 Werkzeug==0.15.3
 aniso8601==0.83
 argparse==1.2.1
-gunicorn==19.0.0
+gunicorn==19.5.0
 itsdangerous==0.24
 jsonschema==2.4.0
 psycopg2==2.5.3
